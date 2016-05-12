@@ -1,4 +1,4 @@
-package com.liangduo.a36kr;
+package com.liangduo.kr36;
 
 import org.junit.Test;
 

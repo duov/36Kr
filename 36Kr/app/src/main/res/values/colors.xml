@@ -3,4 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--TabLayout里面字的颜色-->
+    <color name="tabLayoutTextBefore">#979ea7</color>
+    <color name="tabLayoutTextAfter">#5d87f6</color>
+    <!--TabLayout下划线-->
+    <color name="tabLayoutIndicator">#ffffff</color>
+    <!--vp and tb  分割线-->
+    <color name="partingLine">#979ea7</color>
+    <!--find and my 上部分背景-->
+    <color name="backgroundOfFindAndMy">#5d87f6</color>
+    <!--find中搜索的颜色-->
+    <color name="textViewSearch">#ffffff</color>
+    <!--find中搜索的背景-->
+    <color name="findBackground">#4f65e1</color>
+    <!--find中scroll中的分割线-->
+    <color name="find_scroll_line">#e4e4e4</color>
+
+    <!--news-->
+    <!--news里的ListView的item的title的颜色-->
+    <color name="news_lv_item_title">#000000</color>
+
+
+
 </resources>

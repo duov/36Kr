@@ -1,4 +1,4 @@
-package com.liangduo.a36kr;
+package com.liangduo.volley;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

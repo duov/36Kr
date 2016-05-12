@@ -2,4 +2,43 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--通用margin-->
+    <dimen name="normal_margin">10dp</dimen>
+    <!--通用padding-->
+    <dimen name="normal_padding">5dp</dimen>
+
+    <!--标题栏的高-->
+    <dimen name="title_vertical_margin">50dp</dimen>
+    <!--标题栏中导航图标的边距-->
+    <dimen name="title_navigation_padding">10dp</dimen>
+    <!--ViewPager与TabLayout的分割线-->
+    <dimen name="parting_line_at_vp_and_tb">1dp</dimen>
+    <!--find里search图标和搜索tv的间距-->
+    <dimen name="search_iv_and_tv_margin">10dp</dimen>
+
+    <!--find里scrollView里的分割线-->
+    <dimen name="scroll_view_line">7dp</dimen>
+    <!--scrollView里的统用padding-->
+    <dimen name="scroll_padding">15dp</dimen>
+    <dimen name="scroll_item_line">1dp</dimen>
+
+    <!--my里头像的边距-->
+    <dimen name="my_common_avatar_margin">20dp</dimen>
+    <dimen name="my_avatar_have_not_finish_text">20sp</dimen>
+
+    <!--抽屉的宽-->
+    <dimen name="drawer_width">240dp</dimen>
+
+    <!--抽屉里item中image的宽-->
+    <dimen name="drawer_image_width">3dp</dimen>
+    <!--抽屉里item中image的高-->
+    <dimen name="drawer_image_height">15dp</dimen>
+
+    <!--news的ListView-->
+    <!--news里的ListView的item的name,date,tag的texSize-->
+    <dimen name="news_lv_outside_title_text_size">10sp</dimen>
+    <!--news里的ListView的item的title的text的Size-->
+    <dimen name="news_lv_title_text_size">15dp</dimen>
+
+
 </resources>

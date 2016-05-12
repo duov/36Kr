@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">36Kr</string>
+    <string name="title_name">标题</string>
+    <string name="search">搜索</string>
+    <string name="service">深度服务项目</string>
+    <string name="venture_company">创业公司</string>
+    <string name="discovery_explosive">最具爆发力</string>
+    <string name="discovery_emergence">最新涌现</string>
+    <string name="discovery_item">项目动态</string>
+    <string name="discovery_investor">投资人在看</string>
+    <string name="discovery_index">36氪指数</string>
+    <string name="discovery_activity">近期活动</string>
+    <string name="discovery_research">36氪研究院</string>
+    <string name="discovery_find_investor">寻找投资人</string>
+    <string name="discovery_apply">申请投资</string>
+    <string name="discovery_space">氪空间报名</string>
+
+    <string name="my_avatar_havent_finish">未完善资料</string>
+    <string name="my_go_finish">点击完善资料</string>
+    <string name="my_my_message">我的消息</string>
+    <string name="my_my_order">我的订单</string>
+    <string name="my_count_information">账号信息</string>
+    <string name="my_collection_article">我收藏的文章</string>
+    <string name="my_my_invent_company">我投资的公司</string>
+    <string name="my_my_invent_paper">我的投资劵</string>
+    <string name="my_understand_invent">了解股权投资</string>
+    <string name="my_prove">跟投人认证</string>
+    <string name="my_hot_line">客服热线</string>
+    <string name="my_hot_line_number">400-955-3636</string>
+
+
+
+
+
+    <string name="drawer_item_text">全部</string>
+    
+    <string-array name="planets_array">
+        <item>全部</item>
+        <item>早期项目</item>
+        <item>氪Tv</item>
+    </string-array>
+
+
+
 </resources>
