@@ -2,20 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/normal_margin">
 
     <ImageView
-        android:id="@+id/drawer_list_item_iv"
+        android:id="@+id/drawer_list_item_mark_iv"
         android:layout_width="@dimen/drawer_image_width"
         android:layout_height="@dimen/drawer_image_height"
-        android:layout_margin="@dimen/normal_margin"
-        android:background="@color/backgroundOfFindAndMy" />
+        android:layout_marginLeft="@dimen/normal_margin"
+        android:layout_marginRight="@dimen/normal_margin"
+        android:layout_marginTop="13dp"
+        />
 
     <TextView
-        android:id="@+id/drawer_list_item_tv"
+        android:id="@+id/drawer_list_item_tag_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/normal_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:padding="@dimen/normal_margin"
         />
 
 </LinearLayout>

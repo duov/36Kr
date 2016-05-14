@@ -26,9 +26,11 @@ dependencies {
     compile 'com.android.support:design:23+'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.google.code.gson:gson:2.6.2'
+    //volley
     compile 'me.neavo:volley:2014.12.09'
+    //毕加索:拉取网络图片
     compile 'com.squareup.picasso:picasso:2.5.2'
-
+    //自动轮播的ViewPager
     compile ('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
     }

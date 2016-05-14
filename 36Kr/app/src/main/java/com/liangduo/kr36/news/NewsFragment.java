@@ -1,29 +1,32 @@
 package com.liangduo.kr36.news;
 
+
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HeaderViewListAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 import com.liangduo.kr36.R;
 import com.liangduo.kr36.base.BaseFragment;
 import com.liangduo.kr36.bean.NewsBean;
-import com.liangduo.kr36.my.MyAdapter;
+import com.liangduo.kr36.main.EarlyItemFragment;
 import com.liangduo.kr36.tool.GsonRequest;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +35,18 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 /**
  * Created by liangduo on 16/5/9.
+ * 新闻
  */
 public class NewsFragment extends BaseFragment {
     private NewsAdapter newsAdapter;
     private ListView newsListView;
     private AutoScrollViewPager autoViewPager;
+    private FrameLayout frameLayout;
+    private ListView drawerLv;
+
+    private NewsBroadCast newsBroadCast;//广播
+    private static final String CHANGE_DRAWER_LV_BEAN = "com.liangduo.kr36.CHANGE_DRAWER_LV_BEAN";
+    private List<Fragment> fragmentList= new ArrayList<>();
 
     @Override
     protected int initLayout() {
@@ -46,6 +56,7 @@ public class NewsFragment extends BaseFragment {
     @Override
     protected void initView() {
         newsListView = bindView(R.id.news_fragment_lv);
+        drawerLv = bindView(R.id.drawer_list_view);
         View autoVp = LayoutInflater.from(getContext()).inflate(R.layout.news_lv_head, null);
         autoViewPager = (AutoScrollViewPager) autoVp.findViewById(R.id.view_pager);
         newsListView.addHeaderView(autoVp);
@@ -55,12 +66,20 @@ public class NewsFragment extends BaseFragment {
     protected void initData() {
         //解析网络数据
         analysisData();
-
+        //轮播图
         initCyclePlayPicture();
+
+        //注册自定义广播接收者
+        newsBroadCast = new NewsBroadCast();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(CHANGE_DRAWER_LV_BEAN);
+        getContext().registerReceiver(newsBroadCast,intentFilter);
 
         newsAdapter = new NewsAdapter(getContext());
         newsListView.setAdapter(newsAdapter);
 
+        fragmentList.add(new NewsFragment());
+        fragmentList.add(new EarlyItemFragment());
     }
 
 
@@ -95,22 +114,22 @@ public class NewsFragment extends BaseFragment {
         //第一个图
         ImageView imageView = new ImageView(getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setImageResource(R.mipmap.tabbar_icon_mine);
+        imageView.setImageResource(R.mipmap.cycle_view_one);
         images.add(imageView);
         //第二个图
         imageView = new ImageView(getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setImageResource(R.mipmap.tabbar_icon_news);
+        imageView.setImageResource(R.mipmap.cycle_view_two);
         images.add(imageView);
         //第三个图
         imageView = new ImageView(getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setImageResource(R.mipmap.tabbar_icon_discovery);
+        imageView.setImageResource(R.mipmap.cycle_view_three);
         images.add(imageView);
         //第四个图
         imageView = new ImageView(getContext());
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setImageResource(R.mipmap.tabbar_icon_equity);
+        imageView.setImageResource(R.mipmap.cycle_view_four);
         images.add(imageView);
 
 
@@ -143,11 +162,11 @@ public class NewsFragment extends BaseFragment {
         }
         autoViewPager.setAdapter(new TheAdapter());
         //解决最后一个跳转到第一个闪动问题
-//        autoViewPager.setCurrentItem((Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % images.size()));
+        autoViewPager.setCurrentItem((Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % images.size()));
 
 
         //设置延时时间
-        autoViewPager.setInterval(4000);
+        autoViewPager.setInterval(3000);
         //设置轮播的方向 AutoScrollViewPager.RIGHT/AutoScrollViewPager.LEFT
         autoViewPager.setDirection(AutoScrollViewPager.RIGHT);
         //设置是否自动循环轮播，默认为true
@@ -167,17 +186,13 @@ public class NewsFragment extends BaseFragment {
         autoViewPager.setBorderAnimation(false);
         //当触摸的时候，停止轮播
         autoViewPager.setStopScrollWhenTouch(true);
-
-
-
     }
+
     @Override
     public void onResume() {
         super.onResume();
         //开启自动轮播，延时时间为getInterval()
         autoViewPager.startAutoScroll();
-        //开启自动轮播，并设置延时
-        //auto_view_pager.startAutoScroll(delayTime);
     }
 
     @Override
@@ -187,6 +202,27 @@ public class NewsFragment extends BaseFragment {
         autoViewPager.stopAutoScroll();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getContext().unregisterReceiver(newsBroadCast);
+
+    }
+
+    public class NewsBroadCast  extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            autoViewPager.setVisibility(View.GONE);
+            int position = intent.getIntExtra("position",0);
+            Log.d("#####广播得到了Intent的传值#" , position+"");
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction transaction = fm.beginTransaction();
+            newsListView.setVisibility(View.GONE);
+            transaction.replace(R.id.framelayout_fragment,fragmentList.get(position));
+            transaction.commit();
+        }
+    }
 
 
 }

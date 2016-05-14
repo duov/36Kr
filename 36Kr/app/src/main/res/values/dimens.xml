@@ -22,23 +22,25 @@
     <dimen name="scroll_padding">15dp</dimen>
     <dimen name="scroll_item_line">1dp</dimen>
 
-    <!--my里头像的边距-->
+    <!--++++++++++++++++++++++my里头像的边距+++++++++++++++++++++++++++++++++-->
     <dimen name="my_common_avatar_margin">20dp</dimen>
     <dimen name="my_avatar_have_not_finish_text">20sp</dimen>
 
-    <!--抽屉的宽-->
+    <!--++++++++++++++++++++++抽屉的宽++++++++++++++++++++++++++++++++++++++-->
     <dimen name="drawer_width">240dp</dimen>
 
     <!--抽屉里item中image的宽-->
-    <dimen name="drawer_image_width">3dp</dimen>
+    <dimen name="drawer_image_width">15dp</dimen>
     <!--抽屉里item中image的高-->
-    <dimen name="drawer_image_height">15dp</dimen>
+    <dimen name="drawer_image_height">35dp</dimen>
 
-    <!--news的ListView-->
+    <!--++++++++++++++++++++++++news的ListView+++++++++++++++++++++++++++++-->
     <!--news里的ListView的item的name,date,tag的texSize-->
     <dimen name="news_lv_outside_title_text_size">10sp</dimen>
     <!--news里的ListView的item的title的text的Size-->
     <dimen name="news_lv_title_text_size">15dp</dimen>
+
+    <!--invest中-->
 
 
 </resources>

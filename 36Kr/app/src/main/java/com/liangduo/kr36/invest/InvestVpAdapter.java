@@ -1,6 +1,5 @@
-package com.liangduo.kr36.main;
+package com.liangduo.kr36.invest;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -8,19 +7,18 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 /**
- * Created by liangduo on 16/5/9.
+ * Created by liangduo on 16/5/13.
  */
-public class MainViewPagerAdapter extends FragmentPagerAdapter{
-
+public class InvestVpAdapter extends FragmentPagerAdapter{
     private List<Fragment> fragments;
-    private String[] tab = {"新闻","股权投资","发现","我的"};
+    private String[] tabs= {"全部","募资中","募资完成","融资成功"};
 
     public void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;
         notifyDataSetChanged();
     }
 
-    public MainViewPagerAdapter(FragmentManager fm) {
+    public InvestVpAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -31,13 +29,11 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return fragments == null ? 0 : fragments.size();
+        return fragments == null? 0:fragments.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return tab[position];
+        return tabs[position];
     }
 }
-
-

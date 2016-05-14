@@ -1,8 +1,6 @@
 package com.liangduo.kr36.news;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.nfc.Tag;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +9,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.liangduo.kr36.BuildConfig;
 import com.liangduo.kr36.R;
 import com.liangduo.kr36.bean.NewsBean;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by liangduo on 16/5/9.
@@ -57,7 +52,7 @@ public class NewsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_lv_news_fragmnet, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_lv_news, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {

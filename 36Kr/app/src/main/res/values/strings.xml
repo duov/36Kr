@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">36Kr</string>
-    <string name="title_name">标题</string>
+    <string name="title_name">新闻</string>
     <string name="search">搜索</string>
     <string name="service">深度服务项目</string>
     <string name="venture_company">创业公司</string>
@@ -29,16 +29,8 @@
     <string name="my_hot_line_number">400-955-3636</string>
 
 
-
-
-
     <string name="drawer_item_text">全部</string>
-    
-    <string-array name="planets_array">
-        <item>全部</item>
-        <item>早期项目</item>
-        <item>氪Tv</item>
-    </string-array>
+
 
 
 

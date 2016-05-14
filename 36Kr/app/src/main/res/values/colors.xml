@@ -23,6 +23,11 @@
     <!--news里的ListView的item的title的颜色-->
     <color name="news_lv_item_title">#000000</color>
 
+    <!--invest里的ListView的ProgressBar的颜色-->
+    <color name="item_invest_lv_progress_bar">#e55850</color>
+    <!--invest里的ListView的认购的背景-->
+    <color name="item_invest_lv_buy_bg">#ee5700</color>
+
 
 
 </resources>
