@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * Created by liangduo on 16/5/11.
+ *
+ * 新闻
  */
 public class NewsBean {
 

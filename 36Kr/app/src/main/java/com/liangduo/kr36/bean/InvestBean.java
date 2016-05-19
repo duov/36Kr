@@ -2,6 +2,8 @@ package com.liangduo.kr36.bean;
 
 /**
  * Created by liangduo on 16/5/13.
+ * 股权投资
+ *
  */
 public class InvestBean {
     private int head;

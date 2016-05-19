@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * Created by liangduo on 16/5/14.
+ * 氪TV
+ *
  */
 public class KrTVBean {
 

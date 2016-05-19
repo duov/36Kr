@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/item_lv_find_find_investor_head_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        android:padding="@dimen/normal_padding"
+        android:layout_margin="@dimen/normal_margin"/>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/normal_padding"
+        android:layout_margin="@dimen/normal_margin">
+
+        <TextView
+            android:id="@+id/item_lv_find_find_investor_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textColor="@color/news_lv_item_title"
+            android:textSize="@dimen/my_avatar_have_not_finish_text"/>
+
+        <TextView
+            android:id="@+id/item_lv_find_find_investor_focus_tv"
+            android:layout_below="@id/item_lv_find_find_investor_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="关注领域:"/>
+        <TextView
+            android:id="@+id/item_lv_find_find_investor_focus_space_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_padding"
+            android:layout_toRightOf="@id/item_lv_find_find_investor_focus_tv"
+            android:layout_alignBottom="@id/item_lv_find_find_investor_focus_tv"
+            android:text="678"/>
+        <TextView
+            android:id="@+id/item_lv_find_find_investor_invest_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="投资阶段:"
+            android:layout_marginTop="@dimen/normal_padding"
+            android:layout_below="@id/item_lv_find_find_investor_focus_tv"/>
+        <TextView
+            android:id="@+id/item_lv_find_find_investor_invest_step_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_lv_find_find_investor_focus_tv"
+            android:text="098"
+            android:textColor="@color/item_invest_lv_buy_bg"
+            android:layout_marginLeft="@dimen/normal_padding"
+            android:layout_alignBottom="@id/item_lv_find_find_investor_invest_tv"/>
+
+    </RelativeLayout>
+</LinearLayout>

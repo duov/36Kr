@@ -29,5 +29,13 @@
     <color name="item_invest_lv_buy_bg">#ee5700</color>
 
 
+    <!--register电话号码区号和36kr网络协议和隐私条款的颜色-->
+    <color name="register_country_num">#5d87f6</color>
+
+    <!--login中tabLayout中文字的颜色-->
+    <color name="login_tab_text_before">#92adf4</color>
+    <color name="login_tab_text_after">#ffffff</color>
+
+
 
 </resources>

@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--发现Fragment的布局-->
+<?xml version="1.0" encoding="utf-8"?><!--发现Fragment的布局-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:background="@color/backgroundOfFindAndMy">
-
+        <!--搜索-->
         <LinearLayout
             android:id="@+id/find_search"
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/discovery_icon_search_white" />
+                android:src="@mipmap/discovery_icon_search_white"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,16 +39,18 @@
             android:layout_height="match_parent"
             android:layout_below="@id/find_search"
             android:orientation="horizontal">
-
+            <!--深度服务-->
             <LinearLayout
                 android:id="@+id/find_deep_service_item"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <ImageView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/discovery_good_icon" />
@@ -60,7 +62,7 @@
                     android:text="@string/service"
                     android:textColor="@color/textViewSearch" />
             </LinearLayout>
-
+            <!--创业公司-->
             <LinearLayout
                 android:id="@+id/find_venture_company"
                 android:layout_width="0dp"
@@ -90,7 +92,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,7 +105,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:id="@+id/find_the_most_explosive"
                     android:layout_width="0dp"
@@ -192,182 +194,201 @@
                 </LinearLayout>
             </LinearLayout>
 
+
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_view_line"
-                android:background="@color/find_scroll_line"
-                />
+                android:background="@color/find_scroll_line" />
+
             <LinearLayout
                 android:id="@+id/find_item_index"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_index"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_icon_index" />
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/discovery_index"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_index" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_view_line"
-                android:background="@color/find_scroll_line"
-                />
+                android:background="@color/find_scroll_line" />
 
             <LinearLayout
                 android:id="@+id/find_item_near_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_entrepreneurship_activity"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_icon_entrepreneurship_activity" />
+
                 <TextView
+                    android:id="@+id/find_item_near_activity_tv"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/discovery_activity"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_activity" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_item_line"
-                android:background="@color/find_scroll_line"/>
+                android:background="@color/find_scroll_line" />
 
             <LinearLayout
                 android:id="@+id/find_item_research"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_research"
-                    android:padding="@dimen/scroll_padding"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/discovery_research"
-                    android:padding="@dimen/scroll_padding"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_icon_research" />
+
+                <TextView
+                    android:id="@+id/find_item_research_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_research" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_item_line"
-                android:background="@color/find_scroll_line"/>
+                android:background="@color/find_scroll_line" />
 
             <LinearLayout
                 android:id="@+id/find_item_find_investor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_entrepreneurship_investors"
-                    android:padding="@dimen/scroll_padding"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/discovery_find_investor"
-                    android:padding="@dimen/scroll_padding"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_icon_entrepreneurship_investors" />
+
+                <TextView
+                    android:id="@+id/find_item_find_investor_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_find_investor" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_item_line"
-                android:background="@color/find_scroll_line"/>
+                android:background="@color/find_scroll_line" />
 
             <LinearLayout
                 android:id="@+id/find_item_apply"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_entrepreneurship_financing"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_icon_entrepreneurship_financing" />
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/discovery_apply"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_apply" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/scroll_item_line"
-                android:background="@color/find_scroll_line"/>
+                android:background="@color/find_scroll_line" />
 
             <LinearLayout
                 android:id="@+id/find_item_space"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_icon_entrepreneurship_signup"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:padding="@dimen/scroll_padding"
+                    android:src="@mipmap/discovery_icon_entrepreneurship_signup" />
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/discovery_space"
-                    android:padding="@dimen/scroll_padding"/>
+                    android:layout_weight="1"
+                    android:padding="@dimen/scroll_padding"
+                    android:text="@string/discovery_space" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/discovery_and_my_icon_list_arrow"
                     android:padding="@dimen/scroll_padding"
-                    />
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
             </LinearLayout>
+
+
+
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

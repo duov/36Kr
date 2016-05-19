@@ -178,7 +178,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     }
 
-
     /**
      * 以下三个是监听ViewPager复写的方法
      **/

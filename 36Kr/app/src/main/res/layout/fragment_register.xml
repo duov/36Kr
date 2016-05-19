@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:layout_marginTop="@dimen/login_logo_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/register_introduce" />
+
+
+    <LinearLayout
+        android:id="@+id/register_phone_num"
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/register_country_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_logo_margin"
+            android:text="+86"
+            android:textColor="@color/register_country_num"
+            android:textSize="@dimen/my_avatar_have_not_finish_text" />
+
+        <TextView
+            android:id="@+id/register_num_part_line"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="@dimen/login_logo_margin"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:background="@color/partingLine" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_weight="1"
+
+            >
+            <TextView
+                android:id="@+id/register_phone_number_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_phone_number"
+                android:textColor="@color/tabLayoutTextBefore"
+                android:textSize="@dimen/my_avatar_have_not_finish_text"
+                android:paddingTop="@dimen/login_logo_margin"
+                />
+
+            <EditText
+                android:id="@+id/register_phone_number_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingTop="@dimen/login_logo_margin"
+                android:visibility="invisible"
+                android:hint="     452921270-"
+                android:singleLine="true"
+                android:textColor="@color/news_lv_item_title"
+                android:textSize="@dimen/my_avatar_have_not_finish_text" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/register_num_del"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@mipmap/login_icon_delete"
+            android:layout_marginLeft="@dimen/normal_margin"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:layout_height="@dimen/login_below_line_height"
+        android:layout_below="@id/login_psw_et"
+        android:layout_marginTop="@dimen/normal_padding"
+        android:background="@color/tabLayoutTextBefore" />
+
+    <Button
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:id="@+id/register_get_code_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shap_login_button"
+        android:text="@string/register_get_code"
+        android:textColor="@color/tabLayoutTextBefore" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_means_agree"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/tabLayoutTextBefore"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/register_use_agreement_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/register_country_num"
+            android:text="@string/register_36kr_use_agreement"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_and"
+            />
+        <TextView
+            android:id="@+id/register_secret_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_secret_item"
+            android:textColor="@color/register_country_num"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

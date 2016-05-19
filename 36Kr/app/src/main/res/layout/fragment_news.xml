@@ -1,26 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--新闻fragment的布局-->
+<?xml version="1.0" encoding="utf-8"?><!--新闻fragment的布局-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/news_fragment"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/framelayout_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ListView
-            android:id="@+id/news_fragment_lv"
+
+        <!--<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@+id/refresh"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ListView-->
+                <!--android:id="@+id/news_fragment_lv"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"></ListView>-->
+        <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+
+        <com.liangduo.kr36.tool.RefreshableView
+            android:id="@+id/refreshable_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-        </ListView>
+            android:layout_height="match_parent">
+
+            <!--<include layout="@layout/news_lv_head"/>-->
+
+            <ListView
+                android:id="@+id/news_fragment_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+
+        </com.liangduo.kr36.tool.RefreshableView>
 
     </FrameLayout>
-
-
-
-
 
 </LinearLayout>

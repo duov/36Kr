@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/item_lv_find_research_iv"
+        android:layout_width="80dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/normal_margin"
+        />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/item_find_research_lv_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:ellipsize="end"
+            android:textSize="@dimen/news_lv_title_text_size"
+            android:textColor="@color/news_lv_item_title"
+            android:maxLines="2"
+            />
+
+        <TextView
+            android:id="@+id/item_find_research_lv_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_find_research_lv_title_tv"
+            android:textSize="@dimen/news_lv_outside_title_text_size"
+            android:layout_alignLeft="@id/item_find_research_lv_title_tv"
+            android:layout_marginTop="@dimen/normal_margin"/>
+
+        <TextView
+            android:id="@+id/item_find_research_lv_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_find_research_lv_name_tv"
+            android:textSize="@dimen/news_lv_outside_title_text_size"
+            android:layout_alignBottom="@id/item_find_research_lv_name_tv"
+            android:layout_marginLeft="@dimen/normal_margin"
+            />
+
+        <TextView
+            android:id="@+id/item_find_research_lv_tag_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_find_research_lv_name_tv"
+            android:textSize="@dimen/news_lv_outside_title_text_size"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -40,7 +40,26 @@
     <!--news里的ListView的item的title的text的Size-->
     <dimen name="news_lv_title_text_size">15dp</dimen>
 
-    <!--invest中-->
+    <!--login中-->
+    <!--login-->
+    <dimen name="login_logo_margin">40dp</dimen>
+    <!--login中下方输入的margin-->
+    <dimen name="login_input_margin">30dp</dimen>
+    <!--输入用户名距离上面的距离-->
+    <dimen name="login_num_top">20dp</dimen>
+    <!--login中输入下方的横线-->
+    <dimen name="login_below_line_height">0.5dp</dimen>
+    <!--login中Btn距离上方的距离-->
+    <dimen name="login_margin_top">20dp</dimen>
+    <!--login中qq和weibo的间距-->
+    <dimen name="between_qq_weibo">30dp</dimen>
+
+    <!--register-->
+    <dimen name="introduce_margin_top">30dp</dimen>
+
+    <!--find里的近期活动-->
+    <dimen name="find_nearly_aty_margin">20dp</dimen>
+
 
 
 </resources>

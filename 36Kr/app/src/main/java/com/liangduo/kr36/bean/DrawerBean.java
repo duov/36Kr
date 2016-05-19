@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 /**
  * Created by liangduo on 16/5/13.
+ * 侧滑抽屉
  */
 public class DrawerBean {
     private int mark;

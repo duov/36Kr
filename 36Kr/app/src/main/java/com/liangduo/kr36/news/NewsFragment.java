@@ -9,13 +9,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +31,8 @@ import com.liangduo.kr36.base.BaseFragment;
 import com.liangduo.kr36.bean.NewsBean;
 import com.liangduo.kr36.main.EarlyItemFragment;
 import com.liangduo.kr36.tool.GsonRequest;
+import com.liangduo.kr36.tool.RefreshableView;
+import com.liangduo.kr36.tool.VolleySingle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +43,21 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
  * Created by liangduo on 16/5/9.
  * 新闻
  */
-public class NewsFragment extends BaseFragment {
+public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, AbsListView.OnScrollListener {
     private NewsAdapter newsAdapter;
     private ListView newsListView;
-    private AutoScrollViewPager autoViewPager;
+    private AutoScrollViewPager autoViewPager;//自动轮播ViewPager
     private FrameLayout frameLayout;
-    private ListView drawerLv;
+    private ListView drawerLv;//抽屉的ListView
 
     private NewsBroadCast newsBroadCast;//广播
     private static final String CHANGE_DRAWER_LV_BEAN = "com.liangduo.kr36.CHANGE_DRAWER_LV_BEAN";
-    private List<Fragment> fragmentList= new ArrayList<>();
+    private List<Fragment> fragmentList = new ArrayList<>();
+
+    //    private SwipeRefreshLayout swipeRefreshLayout;//下拉刷新1
+    private RefreshableView refreshableView;
+
+    private NewsBean newsBean;
 
     @Override
     protected int initLayout() {
@@ -56,10 +67,14 @@ public class NewsFragment extends BaseFragment {
     @Override
     protected void initView() {
         newsListView = bindView(R.id.news_fragment_lv);
-        drawerLv = bindView(R.id.drawer_list_view);
+        drawerLv = bindView(R.id.drawer_list_view);//下拉刷新
+//        swipeRefreshLayout = bindView(R.id.refresh);
         View autoVp = LayoutInflater.from(getContext()).inflate(R.layout.news_lv_head, null);
         autoViewPager = (AutoScrollViewPager) autoVp.findViewById(R.id.view_pager);
         newsListView.addHeaderView(autoVp);
+
+
+        refreshableView = bindView(R.id.refreshable_view);
     }
 
     @Override
@@ -73,13 +88,53 @@ public class NewsFragment extends BaseFragment {
         newsBroadCast = new NewsBroadCast();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(CHANGE_DRAWER_LV_BEAN);
-        getContext().registerReceiver(newsBroadCast,intentFilter);
+        getContext().registerReceiver(newsBroadCast, intentFilter);
 
         newsAdapter = new NewsAdapter(getContext());
         newsListView.setAdapter(newsAdapter);
 
         fragmentList.add(new NewsFragment());
         fragmentList.add(new EarlyItemFragment());
+
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "一点击", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        newsListView.setOnScrollListener(this);
+//        swipeRefreshLayout.setOnRefreshListener(this);
+
+        /**
+         * 下拉加载
+         */
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                VolleySingle.addRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up", NewsBean.class,
+                        new Response.Listener<NewsBean>() {
+                            @Override
+                            public void onResponse(NewsBean response) {
+                                newsAdapter.setNewsBean(response);
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+                try {
+                    Thread.sleep(3000);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 0);
+
+
     }
 
 
@@ -209,17 +264,74 @@ public class NewsFragment extends BaseFragment {
 
     }
 
-    public class NewsBroadCast  extends BroadcastReceiver{
+    /**
+     * 下拉刷新第一种
+     */
+    @Override
+    public void onRefresh() {
+        Toast.makeText(getContext(), "刷新了", Toast.LENGTH_SHORT).show();
+//      newsAdapter.setNewsBean();
+        VolleySingle.addRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up", NewsBean.class,
+                new Response.Listener<NewsBean>() {
+                    @Override
+                    public void onResponse(NewsBean response) {
+                        newsAdapter.setNewsBean(response);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+//        swipeRefreshLayout.setRefreshing(false);
+    }
+
+
+    /**
+     * 上拉刷新的监听事件
+     */
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+//        if (newsListView.getLastVisiblePosition() == newsBean.getData().getData().size()-1){
+//            String lastId = newsBean.getData().getData().get(view.getLastVisiblePosition()).getFeedId();
+//            Log.d("NewsFragment", lastId);
+//            VolleySingle.addRequest("https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=down",
+//                    NewsBean.class, new Response.Listener<NewsBean>() {
+//                        @Override
+//                        public void onResponse(NewsBean response) {
+//                            Log.d("上拉加载已经获取到网络数据啦", "response:" + response);
+//                            newsAdapter.setNewsBean(response);
+//                        }
+//                    }, new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//
+//                        }
+//                    });
+//
+//        }
+    }
+    /************************************************************/
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+    }
+
+    /**
+     * 广播接收
+     */
+    public class NewsBroadCast extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
 
             autoViewPager.setVisibility(View.GONE);
-            int position = intent.getIntExtra("position",0);
-            Log.d("#####广播得到了Intent的传值#" , position+"");
+            int position = intent.getIntExtra("position", 0);
+            Log.d("#####广播得到了Intent的传值#", position + "");
             FragmentManager fm = getFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
             newsListView.setVisibility(View.GONE);
-            transaction.replace(R.id.framelayout_fragment,fragmentList.get(position));
+            transaction.replace(R.id.framelayout_fragment, fragmentList.get(position));
             transaction.commit();
         }
     }
