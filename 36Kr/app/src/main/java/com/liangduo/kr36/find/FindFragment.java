@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.liangduo.kr36.R;
 import com.liangduo.kr36.base.BaseFragment;
 import com.liangduo.kr36.login.LoginActivity;
+import com.liangduo.kr36.search.SearchActivity;
 
 /**
  * Created by liangduo on 16/5/9.
@@ -85,71 +86,68 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.find_search:
-                Toast.makeText(getContext(), "以点击1", Toast.LENGTH_SHORT).show();
-                sendIntent();
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.find_deep_service_item:
-                Toast.makeText(getContext(), "以点击2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击2", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_venture_company:
-                Toast.makeText(getContext(), "以点击3", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击3", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_the_most_explosive:
-                Toast.makeText(getContext(), "以点击4", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击4", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_new_emergence:
-                Toast.makeText(getContext(), "以点击5", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击5", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_item_active:
-                Toast.makeText(getContext(), "以点击6", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击6", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_looking_for_investor:
-                Toast.makeText(getContext(), "以点击7", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击7", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_item_index:
-                Toast.makeText(getContext(), "以点击8", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击8", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
             case R.id.find_item_near_activity:
-                Intent intentNear = new Intent(getContext(),ReuseActivity.class);
+                Intent intentNear = new Intent(getActivity(),ReuseActivity.class);
                 intentNear.putExtra("title",nearlyAtyTitle.getText());
                 startActivity(intentNear);
-                Toast.makeText(getContext(), "以点击9", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击9", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.find_item_research:
-                Intent intentResearch = new Intent(getContext(),ReuseActivity.class);
+                Intent intentResearch = new Intent(getActivity(),ReuseActivity.class);
                 intentResearch.putExtra("title",research36Title.getText());
                 startActivity(intentResearch);
-                Toast.makeText(getContext(), "以点击10", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击10", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.find_item_find_investor:
-                Intent intentFindInvestor = new Intent(getContext(),ReuseActivity.class);
+                Intent intentFindInvestor = new Intent(getActivity(),ReuseActivity.class);
                 intentFindInvestor.putExtra("title",findInvestorTitle.getText());
                 startActivity(intentFindInvestor);
-                Toast.makeText(getContext(), "以点击11", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击11", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.find_item_apply:
-                Toast.makeText(getContext(), "以点击12", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击12", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.find_item_space:
-                Toast.makeText(getContext(), "以点击13", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "以点击13", Toast.LENGTH_SHORT).show();
                 turnLoginAty();
                 break;
         }
     }
 
-    private void sendIntent() {
-    }
-
     //跳转至LoginActivity
     private void turnLoginAty(){
-        Intent intent = new Intent(getContext(), LoginActivity.class);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
     }
 }

@@ -1,4 +1,20 @@
 <resources>
+
+    <string name="hello">Hello World, JPush!</string>
+
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+
+
+
     <string name="app_name">36Kr</string>
     <string name="title_name">新闻</string>
     <string name="search">搜索</string>
@@ -39,7 +55,8 @@
 
     <string name="register_introduce">注册成为36氪用户.即享一站式创业服务</string>
     <string name="register_phone_number">手机号</string>
-    <string name="register_get_code">获取验证码</string>
+    <string name="register_psw">密码</string>
+    <string name="register_get_code">确认注册并登录</string>
     <string name="register_means_agree">注册代表你同意</string>
     <string name="register_36kr_use_agreement">36氪网络使用协议</string>
     <string name="register_and">和</string>
@@ -52,6 +69,47 @@
     <string name="updated_at">上次更新于%1$s前</string>
     <string name="updated_just_now">刚刚更新</string>
     <string name="time_error">时间有问题</string>
+
+    <string name="pop_article_total">文章总数</string>
+    <string name="pop_scan_total">总计浏览量</string>
+    <string name="pop_author_nearly_article">最新文章</string>
+
+    <string name="search_cancel">取消</string>
+    <string name="search_no_search">无搜索记录</string>
+    <string name="search_et">搜索新闻/用户/公司</string>
+    <string name="search_news">搜索新闻</string>
+    <string name="search_about_user">相关用户</string>
+    <string name="search_about_user_more">更多</string>
+    <string name="search_about_company">创业公司</string>
+    <string name="search_about_company_more">更多</string>
+    <string name="search_history_clean">清除历史记录</string>
+
+    <string name="find_nearly_activity_type">活动类型</string>
+    <string name="find_nearly_activity_time">活动时间</string>
+    <!--活动类型pop的内容-->
+    <string name="find_nearly_aty_type_all">全部</string>
+    <string name="find_nearly_aty_type_demo_day">Demo Day</string>
+    <string name="find_nearly_aty_type_kr_space">氪空间</string>
+    <string name="find_nearly_aty_type_invest">股权投资</string>
+    <string name="find_nearly_aty_type_service">企业服务</string>
+    <string name="find_nearly_aty_type_quick">极速融资</string>
+    <!--活动时间pop的内容-->
+    <string name="find_nearly_aty_time_all">全部</string>
+    <string name="find_nearly_aty_time_demo_weekend">本周末</string>
+    <string name="find_nearly_aty_time_week">本周</string>
+    <string name="find_nearly_aty_time_next_week">下周</string>
+    <!--我的收藏-->
+    <string name="my_collection_no_more">没有更多</string>
+    <!--设置-->
+    <string name="setting_message_setting">消息设置</string>
+    <string name="setting_no_wifi">允许非Wi-Fi网络下播放视频</string>
+    <string name="setting_clean">清理缓存</string>
+    <string name="setting_about36kr">关于36氪</string>
+    <string name="setting_new">检查新版本</string>
+    <string name="setting_means">意见反馈</string>
+    <string name="setting_quite_login">退出登录</string>
+
+
 
 
 

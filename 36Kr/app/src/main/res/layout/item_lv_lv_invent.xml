@@ -10,14 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="123"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:layout_margin="@dimen/normal_margin"/>
     <TextView
         android:id="@+id/invest_lv_lv_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="312"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:layout_margin="@dimen/normal_margin"
         android:layout_alignParentRight="true"
         />

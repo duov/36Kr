@@ -1,6 +1,7 @@
 package com.liangduo.kr36.news;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,10 +70,26 @@ public class NewsAdapter extends BaseAdapter {
         //处理时间
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH:mm");
         String date = sdf.format(new Date(Long.valueOf(newsBean.getData().getData().get(position).getPublishTime())));
+
+
         holder.time.setText(date);
 
         //处理tag的颜色
-
+        if (newsBean.getData().getData().get(position).getColumnName()!=null){
+            if (newsBean.getData().getData().get(position).getColumnName().toString().equals("早期项目")){
+                holder.tag.setTextColor(Color.parseColor("#6cb96a"));
+            }else if (newsBean.getData().getData().get(position).getColumnName().toString().equals("大公司")){
+                holder.tag.setTextColor(Color.parseColor("#72A8ff"));
+            }else if (newsBean.getData().getData().get(position).getColumnName().toString().equals("B轮后")){
+                holder.tag.setTextColor(Color.parseColor("#71c2f4"));
+            }else if (newsBean.getData().getData().get(position).getColumnName().toString().equals("资本")){
+                holder.tag.setTextColor(Color.parseColor("#3c65d9"));
+            }else if (newsBean.getData().getData().get(position).getColumnName().toString().equals("深度")){
+                holder.tag.setTextColor(Color.parseColor("#cf4f69"));
+            }else if (newsBean.getData().getData().get(position).getColumnName().toString().equals("研究")){
+                holder.tag.setTextColor(Color.parseColor("#e69400"));
+            }
+        }
 
         holder.tag.setText(newsBean.getData().getData().get(position).getColumnName());
         holder.title.setText(newsBean.getData().getData().get(position).getTitle());

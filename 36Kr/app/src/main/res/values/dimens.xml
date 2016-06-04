@@ -60,6 +60,29 @@
     <!--find里的近期活动-->
     <dimen name="find_nearly_aty_margin">20dp</dimen>
 
+    <!--krTvListView中的item中的title的TextView字体的大小-->
+    <dimen name="item_lv_krtv_title_tv">15sp</dimen>
+    <!--krTvListView中的item中的播放ImageView的宽高-->
+    <dimen name="item_lv_krtv_play_iv">15dp</dimen>
+    <!--krTvListView中的item中的播放时间TextView字体的大小-->
+    <dimen name="item_lv_krtv_duration_tv">15sp</dimen>
+    <!--krTvListView中的让背景亮度降低的ImageView的高-->
+    <dimen name="item_lv_krtv_black_iv">220dp</dimen>
+
+    <!--新闻详情作者popupWindow-->
+    <!--pop里文章数和浏览量的Layout的padding-->
+    <dimen name="total_padding">20dp</dimen>
+    <!--pop里文章数和浏览量的文字大小-->
+    <dimen name="pop_total_text_size">25sp</dimen>
+    <!--pop里上方与ListView的分割线的宽度-->
+    <dimen name="pop_above_lv_line">0.5dp</dimen>
+    <!--pop里分割线中的文字大小-->
+    <dimen name="pop_tv_in_line">15sp</dimen>
+
+
+    <dimen name="normal_line_height">0.5dp</dimen>
+
+
 
 
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/dialog_invest_buy"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="成为跟投人才能认证股份,一分钟即刻成为跟跟投人?"/>
+
+</LinearLayout>

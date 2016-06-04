@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_lv_krtv_black_iv"
+    >
+    <VideoView
+        android:id="@+id/item_krtv_vv"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/item_lv_krtv_black_iv"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/item_krtv_background_iv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_lv_krtv_black_iv"
+        android:scaleType="fitXY"
+       />
+
+    <LinearLayout
+        android:id="@+id/krtv_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_lv_krtv_black_iv"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="#30000000"
+        android:gravity="center"
+       >
+        <TextView
+            android:id="@+id/item_krtv_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:textColor="@color/krtv_lv_item_title_and_duration"
+            android:textStyle="bold"
+            android:textSize="@dimen/item_lv_krtv_title_tv"
+            android:layout_gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/news_icon_krtv"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/item_krtv_duration_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/krtv_lv_item_title_and_duration"
+                android:textSize="@dimen/item_lv_krtv_duration_tv"
+                android:layout_marginLeft="@dimen/normal_margin"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

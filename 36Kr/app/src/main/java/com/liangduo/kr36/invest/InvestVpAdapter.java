@@ -24,12 +24,13 @@ public class InvestVpAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return fragments.get(position);
+        return ReuseFragment.newInstance(position);
     }
 
     @Override
     public int getCount() {
-        return fragments == null? 0:fragments.size();
+        //tabs的个数就是我的Fragment的个数
+        return tabs == null? 0:tabs.length;
     }
 
     @Override

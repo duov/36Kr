@@ -20,29 +20,12 @@
         android:layout_marginRight="@dimen/login_logo_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/register_country_num_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/login_logo_margin"
-            android:text="+86"
-            android:textColor="@color/register_country_num"
-            android:textSize="@dimen/my_avatar_have_not_finish_text" />
-
-        <TextView
-            android:id="@+id/register_num_part_line"
-            android:layout_width="1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="@dimen/login_logo_margin"
-            android:layout_marginLeft="@dimen/normal_margin"
-            android:background="@color/partingLine" />
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/normal_margin"
             android:layout_weight="1"
 
@@ -51,10 +34,10 @@
                 android:id="@+id/register_phone_number_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="@string/register_phone_number"
                 android:textColor="@color/tabLayoutTextBefore"
                 android:textSize="@dimen/my_avatar_have_not_finish_text"
-                android:paddingTop="@dimen/login_logo_margin"
                 />
 
             <EditText
@@ -62,9 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:paddingTop="@dimen/login_logo_margin"
-                android:visibility="invisible"
-                android:hint="     452921270-"
+                android:maxEms="7"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
                 android:singleLine="true"
                 android:textColor="@color/news_lv_item_title"
                 android:textSize="@dimen/my_avatar_have_not_finish_text" />
@@ -89,17 +72,86 @@
         android:layout_marginLeft="@dimen/login_logo_margin"
         android:layout_marginRight="@dimen/login_logo_margin"
         android:layout_height="@dimen/login_below_line_height"
-        android:layout_below="@id/login_psw_et"
+        android:layout_below="@id/register_phone_number_et"
         android:layout_marginTop="@dimen/normal_padding"
         android:background="@color/tabLayoutTextBefore" />
 
-    <Button
+
+
+
+
+    <LinearLayout
+        android:id="@+id/register_psw_num"
         android:layout_marginLeft="@dimen/login_logo_margin"
         android:layout_marginRight="@dimen/login_logo_margin"
-        android:id="@+id/register_get_code_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_weight="1"
+
+            >
+            <TextView
+                android:id="@+id/register_psw_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_psw"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/tabLayoutTextBefore"
+                android:textSize="@dimen/my_avatar_have_not_finish_text"
+                />
+
+            <EditText
+                android:id="@+id/register_psw_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:visibility="gone"
+                android:maxEms="7"
+                android:layout_marginTop="20dp"
+                android:singleLine="true"
+                android:textColor="@color/news_lv_item_title"
+                android:textSize="@dimen/my_avatar_have_not_finish_text" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/register_psw_del"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@mipmap/login_icon_delete"
+            android:layout_marginLeft="@dimen/normal_margin"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:layout_height="@dimen/login_below_line_height"
+        android:layout_below="@id/register_phone_number_et"
+        android:layout_marginTop="@dimen/normal_padding"
+        android:background="@color/tabLayoutTextBefore" />
+
+
+    <TextView
+        android:id="@+id/register_get_code_btn"
+        android:layout_marginLeft="@dimen/login_logo_margin"
+        android:layout_marginRight="@dimen/login_logo_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_margin"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
         android:background="@drawable/shap_login_button"
         android:text="@string/register_get_code"
         android:textColor="@color/tabLayoutTextBefore" />
@@ -108,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register_means_agree"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/tabLayoutTextBefore"
         android:layout_gravity="center_horizontal"/>
 

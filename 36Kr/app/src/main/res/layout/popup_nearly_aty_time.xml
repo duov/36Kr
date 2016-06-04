@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#77000000">
+
+    <!--活动时间pop内容的布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:id="@+id/pop_nearly_aty_aty_time"
+        >
+
+        <TextView
+            android:id="@+id/find_nearly_aty_time_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_time_all" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_time_weekend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_time_demo_weekend" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_time_week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_time_week" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_time_next_week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_time_next_week" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/time_find_nearly_aty_pop_frame_tv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+</LinearLayout>

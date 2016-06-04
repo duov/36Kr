@@ -9,6 +9,16 @@ import java.util.List;
  */
 public class KrTVBean {
 
+    private Boolean playing = true;
+
+    public KrTVBean(Boolean playing) {
+        this.playing = playing;
+    }
+
+    public void setPlaying(Boolean playing) {
+        this.playing = playing;
+    }
+
     /**
      * code : 0
      * data : {"page":1,"totalCount":0,"data":[{"tv":{"videoSource360":"http://7rfkz6.com1.z0.glb.clouddn.com/360p_5934_XMTMzMDUwMDYwOA.mp4","id":"553","videoSource720":"http://7rfkz6.com1.z0.glb.clouddn.com/720p_5950_XMTMzMDUwMDYwOA.mp4","title":"「一分钟产品」睡不着的时候，听着这个叫Snooz白噪音风扇入眠","duration":"1 分钟","videoSource":"http://7rfkz6.com1.z0.glb.clouddn.com/480p_150908_snooz.mp4","publishTime":1441879127000,"youkuUrl":"http://v.youku.com/v_show/id_XMTMzMDUwMDYwOA==","videoSource480":"http://7rfkz6.com1.z0.glb.clouddn.com/480p_150908_snooz.mp4","featureImg":"http://a.36krcnd.com/nil_class/bfcfb399-9b8a-46d4-bb66-5eb4c99335fa/photo-original.png","durationLong":70},"columnName":"氪TV","columnId":"tv","type":"tv"}]}

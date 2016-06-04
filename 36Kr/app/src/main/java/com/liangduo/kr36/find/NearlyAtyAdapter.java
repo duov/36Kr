@@ -1,6 +1,7 @@
 package com.liangduo.kr36.find;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ public class NearlyAtyAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return nearlyAtyBeen == null? 0:nearlyAtyBeen.getData().getPageSize();
+        return nearlyAtyBeen == null ? 0 : nearlyAtyBeen.getData().getData().size();
     }
 
     @Override
@@ -48,20 +49,32 @@ public class NearlyAtyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder= null;
-        if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_nearly_aty_lv,null);
+        ViewHolder holder = null;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_nearly_aty_lv, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
-        }else{
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         //解析图片
         Picasso.with(context).load(nearlyAtyBeen.getData().getData().get(position).getActivityImg()).into(holder.picture);
 
+
         holder.title.setText(nearlyAtyBeen.getData().getData().get(position).getActivityName());
         holder.information.setText(nearlyAtyBeen.getData().getData().get(position).getActivityDesc());
-        holder.state.setText(nearlyAtyBeen.getData().getData().get(position).getActivityStatus());
+
+        Log.d("NearlyAtyAdapter", "~_~" + nearlyAtyBeen.getData().getData().get(position).getActivityStatus().toString());
+        if (nearlyAtyBeen.getData().getData().get(position).getActivityStatus().equals("报名中")) {
+            holder.state.setText(nearlyAtyBeen.getData().getData().get(position).getActivityStatus());
+            holder.state.setBackgroundColor(Color.parseColor("#92adf4"));
+        } else if (nearlyAtyBeen.getData().getData().get(position).getActivityStatus().equals("活动中")) {
+            holder.state.setText(nearlyAtyBeen.getData().getData().get(position).getActivityStatus());
+            holder.state.setBackgroundColor(Color.parseColor("#ff6301"));
+        }else if (nearlyAtyBeen.getData().getData().get(position).getActivityStatus().equals("已结束")){
+            holder.state.setText(nearlyAtyBeen.getData().getData().get(position).getActivityStatus());
+            holder.state.setBackgroundColor(Color.parseColor("#bfbfbf"));
+        }
         holder.address.setText(nearlyAtyBeen.getData().getData().get(position).getActivityCity());
         holder.date.setText(nearlyAtyBeen.getData().getData().get(position).getActivityTime());
 
@@ -76,13 +89,13 @@ public class NearlyAtyAdapter extends BaseAdapter {
         TextView address;
         TextView date;
 
-        public  ViewHolder(View itemView){
-            picture                = (ImageView) itemView.findViewById(R.id.nearly_aty_lv_iv);
-            title                   = (TextView) itemView.findViewById(R.id.nearly_aty_lv_title_tv);
-            information             = (TextView) itemView.findViewById(R.id.nearly_aty_lv_information_tv);
-            state                   = (TextView) itemView.findViewById(R.id.nearly_aty_lv_state_tv);
-            address                 = (TextView) itemView.findViewById(R.id.nearly_aty_lv_address_iv);
-            date                    = (TextView) itemView.findViewById(R.id.nearly_aty_lv_date_tv);
+        public ViewHolder(View itemView) {
+            picture = (ImageView) itemView.findViewById(R.id.nearly_aty_lv_iv);
+            title = (TextView) itemView.findViewById(R.id.nearly_aty_lv_title_tv);
+            information = (TextView) itemView.findViewById(R.id.nearly_aty_lv_information_tv);
+            state = (TextView) itemView.findViewById(R.id.nearly_aty_lv_state_tv);
+            address = (TextView) itemView.findViewById(R.id.nearly_aty_lv_address_iv);
+            date = (TextView) itemView.findViewById(R.id.nearly_aty_lv_date_tv);
         }
     }
 }

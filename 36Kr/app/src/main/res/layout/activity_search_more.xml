@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/activity_search_more_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/normal_margin" />
+
+        <ImageView
+            android:id="@+id/activity_search_more_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:src="@mipmap/news_toolbar_icon_back" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_line_height"
+        android:background="@color/partingLine" />
+
+
+    <TextView
+        android:id="@+id/search_search_count_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textSize="15sp"
+        />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_line_height"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:background="@color/partingLine" />
+
+    <ListView
+        android:id="@+id/search_more_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/normal_margin"
+        android:scrollbars="none"
+        ></ListView>
+
+
+</LinearLayout>

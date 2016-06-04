@@ -1,6 +1,10 @@
 package com.liangduo.kr36.main;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
@@ -21,20 +26,36 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.liangduo.greendao.CollectionDao;
+import com.liangduo.greendao.DaoMaster;
+import com.liangduo.greendao.DaoSession;
+import com.liangduo.greendao.GreendaoSingle;
+import com.liangduo.greendao.Collection;
+import com.liangduo.greendao.CollectionDao;
 import com.liangduo.kr36.R;
 import com.liangduo.kr36.base.BaseActivity;
 import com.liangduo.kr36.bean.DrawerBean;
 import com.liangduo.kr36.bean.EarlyBean;
 import com.liangduo.kr36.find.FindFragment;
 import com.liangduo.kr36.invest.InvestFragment;
+import com.liangduo.kr36.login.LoginFragment;
+import com.liangduo.kr36.login.OnClickViewPagerToOne;
+import com.liangduo.kr36.login.RegisterFragment;
 import com.liangduo.kr36.my.MyFragment;
 import com.liangduo.kr36.news.NewsFragment;
+import com.liangduo.kr36.search.SearchActivity;
 import com.liangduo.kr36.tool.GsonRequest;
+import com.liangduo.kr36.util.ExampleUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
+import cn.jpush.android.api.CustomPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
+
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, AdapterView.OnItemClickListener,OnClickViewPagerToOne {
+    public static boolean isForeground = false;
+
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private MainViewPagerAdapter mainViewPagerAdapter;
@@ -48,12 +69,11 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private ListView drawerListView;//抽屉里的listView
     private List<DrawerBean> drawerBeen;
     private DrawerAdapter drawerAdapter;
-    private String[] mPlanetTitles = {"全部", "早期项目", "氪TV"};
-
+    //发送ListView点击的位置的广播
     private static final String CHANGE_DRAWER_LV_BEAN = "com.liangduo.kr36.CHANGE_DRAWER_LV_BEAN";
+    final Intent intent = new Intent(CHANGE_DRAWER_LV_BEAN);
 
-
-//    private LinearLayout drawerAllItemLayout;
+//    private LinearLayout drawerAllItemLayout; my_do_not_finish_tv
 
     @Override
     protected void initView() {//初始化组件
@@ -81,9 +101,10 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         //初始化图标
         initTab();
         //监听ViewPager的改变
-        mViewPager.addOnPageChangeListener(this);
+        mViewPager.setOnPageChangeListener(this);
         //导航栏点击出现抽屉
         titleNavigationIv.setOnClickListener(this);
+        titleSearchIv.setOnClickListener(this);
         //抽屉返回按键的监听
         drawerBackIv.setOnClickListener(this);
         initDrawer();
@@ -91,45 +112,43 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         drawerAdapter.setDrawerList(drawerBeen);
         drawerListView.setAdapter(drawerAdapter);
 
-        final Intent intent = new Intent(CHANGE_DRAWER_LV_BEAN);
+//        final Intent intent = new Intent(CHANGE_DRAWER_LV_BEAN);
 
-        drawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        mDrawerLayout.closeDrawer(Gravity.LEFT);
-                        intent.putExtra("position",0);
-                        sendBroadcast(intent);
-                        break;
-                    case 1:
-                        intent.putExtra("position",1);
-                        sendBroadcast(intent);
-                        mDrawerLayout.closeDrawer(Gravity.LEFT);
-                        break;
-                    case 7:
-                        intent.putExtra("position",2);
-                        sendBroadcast(intent);
-                        mDrawerLayout.closeDrawer(Gravity.LEFT);
-                        break;
-                }
-            }
-        });
+        drawerListView.setOnItemClickListener(this);
+
+        registerMessageReceiver();  // used for receive msg
+        //用户自定义的Notification
+        CustomPushNotificationBuilder builder = new
+                CustomPushNotificationBuilder(MainActivity.this,
+                R.layout.customer_notitfication_layout,
+                R.id.icon,
+                R.id.title,
+                R.id.text);
+        // 指定定制的 Notification Layout
+        builder.statusBarDrawable = R.mipmap.icon;
+        // 指定最顶层状态栏小图标
+        builder.layoutIconDrawable = R.mipmap.ic_kr;
+        // 指定下拉状态栏时显示的通知图标
+        JPushInterface.setPushNotificationBuilder(2, builder);
+
+
+
+        //在这里接收了登录的传值,让MainActivity的ViewPager自动划到第三页
+        Intent intent1 = getIntent();
+        Integer changePage = intent1.getIntExtra("change",0);
+        mViewPager.setCurrentItem(changePage);
     }
-
-
-
 
     private void initDrawer() {
         drawerBeen = new ArrayList<>();
-        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_all,"全部"));
-        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_early,"早期项目"));
-        drawerBeen.add(new DrawerBean(R.mipmap.news_after_b_wheel,"B轮后"));
-        drawerBeen.add(new DrawerBean(R.mipmap.news_big_company,"大公司"));
-        drawerBeen.add(new DrawerBean(R.mipmap.news_capital,"资本"));
-        drawerBeen.add(new DrawerBean(R.mipmap.news_depth,"深度"));
-        drawerBeen.add(new DrawerBean(R.mipmap.news_research,"研究"));
-        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_tv,"氪TV"));
+        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_all, "全部"));
+        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_early, "早期项目"));
+        drawerBeen.add(new DrawerBean(R.mipmap.news_after_b_wheel, "B轮后"));
+        drawerBeen.add(new DrawerBean(R.mipmap.news_big_company, "大公司"));
+        drawerBeen.add(new DrawerBean(R.mipmap.news_capital, "资本"));
+        drawerBeen.add(new DrawerBean(R.mipmap.news_depth, "深度"));
+        drawerBeen.add(new DrawerBean(R.mipmap.news_research, "研究"));
+        drawerBeen.add(new DrawerBean(R.mipmap.menu_item_tv, "氪TV"));
 
     }
 
@@ -171,14 +190,24 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     //初始化Fragment的方法
     private void initFragment() {
         fragmentList = new ArrayList<>();
+
+        MyFragment myFragment = new MyFragment();
+
+//      //  myFragment.setOnClickViewPagerToOne(this);
+//        LoginFragment loginFragment = new LoginFragment();
+//        loginFragment.setOnClickViewPagerToOne(this);
+
+
         fragmentList.add(new NewsFragment());
         fragmentList.add(new InvestFragment());
         fragmentList.add(new FindFragment());
-        fragmentList.add(new MyFragment());
-
+        fragmentList.add(myFragment);
     }
 
+
+
     /**
+     * `
      * 以下三个是监听ViewPager复写的方法
      **/
     @Override
@@ -205,6 +234,113 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             case R.id.drawer_back_iv:
                 mDrawerLayout.closeDrawer(Gravity.LEFT);//抽屉从左边收回
                 break;
+            case R.id.title_search_iv:
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+                break;
         }
     }
+
+
+    // 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
+    private void init() {
+        JPushInterface.init(getApplicationContext());
+    }
+
+    @Override
+    protected void onResume() {
+        isForeground = true;
+        JPushInterface.onResume(this);
+        super.onResume();
+    }
+
+
+    @Override
+    protected void onPause() {
+        isForeground = false;
+        JPushInterface.onPause(this);
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
+    }
+
+
+    //for receive customer msg from jpush server
+    private MessageReceiver mMessageReceiver;
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        registerReceiver(mMessageReceiver, filter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                sendPosition(0);
+                break;
+            case 1:
+               sendPosition(1);
+                break;
+            case 2:
+                sendPosition(2);
+                break;
+            case 3:
+                sendPosition(3);
+                break;
+            case 4:
+                sendPosition(4);
+                break;
+            case 5:
+                sendPosition(5);
+                break;
+            case 6:
+                sendPosition(6);
+                break;
+            case 7:
+                sendPosition(7);
+                break;
+        }
+    }
+
+    private void sendPosition(int position) {
+        intent.putExtra("position", position);
+        sendBroadcast(intent);
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
+    }
+
+    @Override
+    public void toOne() {
+        mViewPager.setCurrentItem(3);
+    }
+
+
+    public class MessageReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+                String messge = intent.getStringExtra(KEY_MESSAGE);
+                String extras = intent.getStringExtra(KEY_EXTRAS);
+                StringBuilder showMsg = new StringBuilder();
+                showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+                if (!ExampleUtil.isEmpty(extras)) {
+                    showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+                }
+            }
+        }
+    }
+
 }

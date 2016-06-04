@@ -134,8 +134,10 @@
         android:padding="@dimen/normal_padding"
         android:text="@string/login_login_forget_psw" />
 
-    <Button
+    <TextView
         android:id="@+id/login_btn"
+        android:gravity="center"
+        android:padding="@dimen/normal_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/login_logo_margin"

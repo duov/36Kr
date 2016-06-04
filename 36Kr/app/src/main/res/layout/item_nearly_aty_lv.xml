@@ -38,6 +38,9 @@
             android:id="@+id/nearly_aty_lv_state_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:padding="2dp"
+            android:textColor="@color/textViewSearch"
             android:text="123"/>
         <ImageView
             android:id="@+id/nearly_aty_lv_location_iv"

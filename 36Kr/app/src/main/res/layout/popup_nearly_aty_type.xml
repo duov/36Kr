@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#77000000">
+    <!--活动类型pop的内容-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/pop_nearly_aty_aty_type"
+        android:background="#ffffff"
+        >
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_all" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_demo_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_demo_day" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_kr_space"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_kr_space" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_invest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_invest" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_service"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine"/>
+
+        <TextView
+            android:id="@+id/find_nearly_aty_type_quick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/find_nearly_aty_type_quick" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/find_nearly_aty_pop_frame_tv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+</LinearLayout>

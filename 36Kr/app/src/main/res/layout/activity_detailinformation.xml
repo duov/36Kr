@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/news_ph_data"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ScrollView
+        android:id="@+id/detail_infor_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:id="@+id/detail_infor_author_head"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="@dimen/normal_margin"/>
+                <TextView
+                    android:id="@+id/detail_infor_author_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/detail_infor_author_head"
+                    android:layout_toRightOf="@id/detail_infor_author_head"
+                    android:textSize="15sp"
+                    android:layout_margin="5dp"/>
+                <TextView
+                    android:id="@+id/detail_infor_author_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/detail_infor_author_head"
+                    android:layout_toRightOf="@id/detail_infor_author_head"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:maxEms="15"
+                    android:ellipsize="end"
+                    android:layout_marginLeft="5dp"/>
+                <TextView
+                    android:id="@+id/detail_infor_author_tag"
+                    android:layout_alignBottom="@id/detail_infor_author_name"
+                    android:layout_toRightOf="@id/detail_infor_author_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="作者"
+                    android:visibility="gone"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_marginBottom="3dp"
+                    android:textColor="#6bdc98"
+                    android:background="@drawable/shap_detail_author"
+                    />
+                <ImageView
+                    android:id="@+id/detail_infor_author_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_down"
+                    android:padding="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+                <ImageView
+                    android:id="@+id/detail_infor_author_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/partingLine"
+                    android:layout_below="@id/detail_infor_author_head"/>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/detail_infor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/detail_infor_titile_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp"
+                    android:textColor="#000000"
+                    android:textSize="23sp"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_infor_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/detail_infor_summary_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/detail_infor_content_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:lineSpacingExtra="10dp"
+                    android:padding="20dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/detail_infor_pay_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/shap_detailintormation_pay"
+                    android:padding="@dimen/normal_margin"
+                    android:text="¥打赏支持"
+                    android:textColor="@color/detailed_infor_pay_tv"
+                    android:layout_marginBottom="60dp"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+   <LinearLayout
+       android:id="@+id/detail_infor_down_toolbar"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:orientation="vertical"
+       android:layout_alignParentBottom="true"
+       >
+
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/normal_line_height"
+           android:background="@color/partingLine"/>
+
+
+       <LinearLayout
+
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="1"
+           android:orientation="horizontal"
+           android:background="#dedede"
+          >
+           <ImageView
+               android:id="@+id/detail_infor_back_iv"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/normal_margin"
+               android:src="@mipmap/news_toolbar_icon_back"/>
+           <ImageView
+               android:id="@+id/detail_infor_comment_iv"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/normal_margin"
+               android:src="@mipmap/news_toolbar_icon_comment"/>
+           <ImageView
+               android:id="@+id/detail_infor_favorite_iv"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/normal_margin"
+               android:src="@drawable/selector_detailinformation_favorite"/>
+           <ImageView
+               android:id="@+id/detail_infor_send_iv"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/normal_margin"
+               android:src="@mipmap/news_toolbar_icon_share"/>
+
+       </LinearLayout>
+
+
+   </LinearLayout>
+
+
+
+
+</RelativeLayout>

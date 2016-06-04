@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/activity_search_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:src="@mipmap/seaarch_nav_icon_search" />
+
+        <EditText
+            android:id="@+id/activity_search_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/search_et"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/activity_search_cancel_all_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/normal_padding"
+            android:src="@mipmap/login_icon_delete"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/activity_search_cancel_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="@dimen/normal_margin"
+            android:text="@string/search_cancel" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/below_top_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/normal_line_height"
+        android:layout_below="@id/top"
+        android:background="@color/partingLine" />
+
+    <!--这是搜索后的历史记录-->
+    <LinearLayout
+        android:id="@+id/after_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/below_top_line"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/search_history_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:padding="@dimen/normal_margin"
+            android:text="@string/search_news" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine" />
+
+        <TextView
+            android:id="@+id/search_history_tv_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/search_history_tv_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/search_history_tv_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/search_history_tv_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="123" />
+
+        <TextView
+            android:id="@+id/search_history_tv_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="123" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/normal_line_height"
+            android:background="@color/partingLine" />
+
+        <TextView
+            android:id="@+id/search_history_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="@string/search_history_clean"
+            android:textColor="@color/tabLayoutTextAfter"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <!--这是搜索之前的背景-->
+    <LinearLayout
+        android:id="@+id/activity_search_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/below_top_line"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/search_background_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="130dp"
+            android:src="@mipmap/search_ph_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/search_no_search" />
+    </LinearLayout>
+
+
+    <!-- android:visibility="gone"-->
+    <!--这是搜索后的界面-->
+    <ScrollView
+        android:id="@+id/search_search_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/below_top_line"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/search_search_news_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/search_news_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/search_news" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/normal_margin"
+                    android:src="@mipmap/discovery_and_my_icon_list_arrow" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_line_height"
+                android:background="@color/partingLine" />
+
+            <LinearLayout
+                android:id="@+id/search_search_about_user_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/about_user_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/search_about_user" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/search_about_user_more" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_line_height"
+                android:background="@color/partingLine" />
+
+            <LinearLayout
+                android:id="@+id/search_search_company_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/about_company_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/search_about_company" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/normal_margin"
+                    android:text="@string/search_about_company_more" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/normal_line_height"
+                android:background="@color/partingLine" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/activity_title" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_view_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_message_set_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_message_setting" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/scroll_padding"
+            android:src="@mipmap/discovery_and_my_icon_list_arrow" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_item_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_agree_no_wifi_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_no_wifi" />
+
+        <Switch
+            android:id="@+id/setting_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_item_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_clean_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_clean" />
+
+        <TextView
+            android:id="@+id/setting_cache_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:text="0M" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_view_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_about36kr_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_about36kr" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/scroll_padding"
+            android:src="@mipmap/discovery_and_my_icon_list_arrow" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_item_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_new_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_new" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/scroll_padding"
+            android:src="@mipmap/discovery_and_my_icon_list_arrow" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_item_line"
+        android:background="@color/find_scroll_line" />
+
+    <LinearLayout
+        android:id="@+id/setting_means_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/scroll_padding"
+            android:text="@string/setting_means" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/scroll_padding"
+            android:src="@mipmap/discovery_and_my_icon_list_arrow" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_view_line"
+        android:background="@color/find_scroll_line" />
+
+    <TextView
+        android:id="@+id/setting_quite_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/scroll_padding"
+        android:gravity="center"
+        android:textColor="@color/tabLayoutTextAfter"
+        android:text="@string/setting_quite_login" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_view_line"
+        android:background="@color/find_scroll_line" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/find_scroll_line" />
+
+
+</LinearLayout>

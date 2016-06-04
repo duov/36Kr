@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/my_collection_fragment"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/my_collection_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mine_ph_noitems"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="你还没有收藏哦,快去吧~"
+            android:textColor="@color/tabLayoutTextBefore"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/my_collection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    <ListView
+        android:id="@+id/my_collection_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="@string/my_collection_no_more"/>
+    </LinearLayout>
+</RelativeLayout>

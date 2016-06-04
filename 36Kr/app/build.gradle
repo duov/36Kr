@@ -3,19 +3,35 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 
     defaultConfig {
-        applicationId "com.liangduo.a36kr"
+        applicationId "com.liangduo.kr36"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    /**
+     * 在打包时会出现这样的错误:MissingTranslation 要写一下下面的代码
+     */
+    lintOptions {
+        abortOnError true
+        checkReleaseBuilds true
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
     }
 }
 
@@ -30,8 +46,19 @@ dependencies {
     compile 'me.neavo:volley:2014.12.09'
     //毕加索:拉取网络图片
     compile 'com.squareup.picasso:picasso:2.5.2'
-    //自动轮播的ViewPager
-    compile ('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
-        exclude module: 'support-v4'
-    }
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    //这是推送导的包
+    compile files('libs/jpush-android-2.1.5.jar')
+    compile 'de.greenrobot:greendao:2.1.0'
+    compile files('libs/MobCommons-2016.0426.1819.jar')
+    compile files('libs/MobTools-2016.0426.1819.jar')
+    compile files('libs/ShareSDK-Core-2.7.2.jar')
+    compile files('libs/ShareSDK-QQ-2.7.2.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.7.2.jar')
+    compile files('libs/ShareSDK-QZone-2.7.2.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.7.2.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.7.2.jar')
 }

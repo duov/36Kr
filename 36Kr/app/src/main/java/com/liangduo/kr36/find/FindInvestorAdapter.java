@@ -1,6 +1,8 @@
 package com.liangduo.kr36.find;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 
 import com.liangduo.kr36.R;
 import com.liangduo.kr36.bean.FindInvestorBean;
+import com.liangduo.kr36.tool.CircleTransform;
+import com.liangduo.kr36.tool.DrawableCircle;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -27,6 +31,7 @@ import java.util.List;
 public class FindInvestorAdapter extends BaseAdapter {
     private FindInvestorBean findInvestorBean;
     private Context context;
+
 
     public FindInvestorAdapter(Context context) {
         this.context = context;
@@ -64,9 +69,9 @@ public class FindInvestorAdapter extends BaseAdapter {
         }
 
         //解析网络拉取头像
-        Picasso.with(context).load(findInvestorBean.getData().getData().get(position).getUser().getAvatar()).into(holder.head);
-
-
+        Picasso.with(context).load(findInvestorBean.getData().getData().get(position).getUser().getAvatar())
+                //在这里使用毕加索将图片处理成圆形
+                .transform(new CircleTransform()).error(R.mipmap.ic_launcher).into(holder.head);
         holder.name.setText(findInvestorBean.getData().getData().get(position).getUser().getName());
 
 //        holder.investStep.setText(findInvestorBean.getData().getData().get(position).getInvestPhases().get(position));
@@ -82,7 +87,11 @@ public class FindInvestorAdapter extends BaseAdapter {
         // sb.toString() 就是你要的字符串;
         Log.d("投资阶段的字符串", step.toString());
 
-        holder.investStep.setText(step.toString());
+        if (step.toString().trim().equals("")){
+            holder.investStep.setText("未披露");
+        }else {
+            holder.investStep.setText(step.toString());
+        }
 
         /**
          * 将集合转为字符串  投资领域
@@ -94,7 +103,11 @@ public class FindInvestorAdapter extends BaseAdapter {
         // sb.toString() 就是你要的字符串;
         Log.d("投资领域的字符串", place.toString());
 
-        holder.focusPlace.setText(place.toString());
+        if (place.toString().trim().equals("")){
+            holder.focusPlace.setText("未披露");
+        }else {
+            holder.focusPlace.setText(place.toString());
+        }
 
         return convertView;
     }
@@ -106,6 +119,7 @@ public class FindInvestorAdapter extends BaseAdapter {
         TextView focusPlace;
 
         public ViewHolder (View itemView){
+
             head = (ImageView) itemView.findViewById(R.id.item_lv_find_find_investor_head_iv);
             name = (TextView) itemView.findViewById(R.id.item_lv_find_find_investor_name_tv);
             investStep = (TextView) itemView.findViewById(R.id.item_lv_find_find_investor_invest_step_tv);

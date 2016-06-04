@@ -126,6 +126,12 @@ public class NewsBean {
              * ssoId : 392679
              */
 
+            /*******************/
+
+            /**********************/
+
+
+
             private UserBean user;
 
             public String getFeedId() {

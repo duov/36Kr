@@ -1,5 +1,6 @@
 package com.liangduo.kr36.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,12 +18,12 @@ public abstract class BaseFragment extends Fragment{
     /**
      * Fragment
      * context 从依附的Activity上获取context对象
-     * @param context
+     * @param activity
      */
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        context = mContext;
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mContext = activity;
     }
 
     /**

@@ -36,6 +36,15 @@
     <color name="login_tab_text_before">#92adf4</color>
     <color name="login_tab_text_after">#ffffff</color>
 
+    <!--krTv的ListView的item的title和duration时间的TextView的颜色-->
+    <color name="krtv_lv_item_title_and_duration">#ffffff</color>
+
+    <color name="detailed_infor_pay_tv">#5d87f6</color>
+
+    <color name="invest_maoding">#ff6301</color>
+    <color name="invest_collection_money_ing">#5d87f6</color>
+    <color name="invest_collection_money_finish_succeed">#979ea7</color>
+
 
 
 </resources>
